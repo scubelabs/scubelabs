@@ -35,20 +35,18 @@ Wireshark • sngrep • Prometheus • Grafana • SIP Ladder Analysis
 
 ---
 
-## 🚧 Projects Under Development
+## Projects
 
-### ☎️ Carrier-Grade Mini ACD
-A working Automatic Call Distributor built around Kamailio and FreeSWITCH, progressively implementing agent state, queues, routing strategies, call control, resiliency and observability.
+| Repository | Purpose | Current evidence |
+|---|---|---|
+| [VoxOne](https://github.com/scubelabs/voxone) | Shared call-control core, browser SIP/WebRTC adapter and desktop shell | Source, unit tests and build workflow; real SIP/media interoperability remains unverified |
+| [Carrier-Grade Mini ACD](https://github.com/scubelabs/carrier-grade-mini-acd) | Local SIP edge and media/queue lab | M1 configuration and runbook; two-way RTP and end-to-end agent delivery require a verified local run |
+| [SIP Troubleshooting Lab](https://github.com/scubelabs/sip-troubleshooting-lab) | Directional SIP/SDP/RTP failure investigation | Nine drafted guides; controlled before/after captures are not published |
+| [CCaaS Domain Model](https://github.com/scubelabs/ccaas-domain-model) | Canonical entities, events and data contracts | Schemas, fixtures and CI contract validation; no runtime service |
+| [CCaaS Reference Architecture](https://github.com/scubelabs/ccaas-reference-architecture) | Service ownership, routing, media, reporting and resilience design | Architecture and proof plans; no executable platform |
+| Medha | Private learning and curriculum project | Access depends on repository permissions |
 
-**Planned stack:** Kamailio • FreeSWITCH • WebRTC • Redis • PostgreSQL • Docker
-
-### 🔎 SIP Troubleshooting Lab
-Hands-on SIP/RTP failure scenarios with packet captures, SIP ladders, symptoms, root-cause analysis and fixes.
-
-Topics will include NAT, one-way audio, authentication failures, SIP retransmissions, codec negotiation, SDP problems and RTP troubleshooting.
-
-### 🏗️ CCaaS Reference Architecture
-A production-oriented reference architecture for modern Contact Center as a Service platforms covering carrier ingress, SIP edge, media, IVR, ACD, agent connectivity, data, observability, security, high availability and disaster recovery.
+These projects deliberately distinguish a design, a runnable lab and verified behavior. Repository names express direction, not production certification.
 
 ---
 
@@ -67,9 +65,9 @@ Projects will include architecture diagrams, runnable configurations, call flows
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
-`Mini ACD` → `SIP Troubleshooting Lab` → `CCaaS Reference Architecture` → `WebRTC Agent` → `Voice Platform Observability` → `Multi-Carrier Routing`
+Prove the Mini ACD end-to-end voice path, expand the troubleshooting lab with sanitized captures, connect VoxOne to a controlled SIP test environment, and evolve the shared domain contracts from observed behavior. Publish tests and failure evidence alongside capability claims.
 
 ---
 
