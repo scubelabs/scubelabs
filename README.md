@@ -75,29 +75,27 @@ SCubeLabs is moving from **architecture → contracts → executable vertical sl
 
 The current implementation path concentrates on the critical real-time spine:
 
-```text
-Carrier / Endpoint
-       │
-       ▼
-   Voice Edge
-       │
-       ▼
- Media / Call Control
-       │
-       ▼
- Interaction Core
-       │
-       ▼
- Routing Engine
-       │
-       ▼
- Agent Platform
-       │
-       ▼
- Realtime Gateway
-       │
-       ▼
-     VoxOne
+```mermaid
+flowchart LR
+    CE["🌐 Carrier / Endpoint"] --> VE["📞 Voice Edge"]
+    VE --> MC["🎛️ Media / Call Control"]
+    MC --> IC["🧭 Interaction Core"]
+    IC --> RE["🔀 Routing Engine"]
+    RE --> AP["👥 Agent Platform"]
+    AP --> RG["⚡ Realtime Gateway"]
+    RG --> VO["🎧 VoxOne"]
+
+    classDef edge fill:#DBEAFE,stroke:#2563EB,color:#172554,stroke-width:2px
+    classDef voice fill:#FCE7F3,stroke:#DB2777,color:#500724,stroke-width:2px
+    classDef control fill:#EDE9FE,stroke:#7C3AED,color:#2E1065,stroke-width:2px
+    classDef agent fill:#FEF3C7,stroke:#D97706,color:#451A03,stroke-width:2px
+    classDef realtime fill:#CFFAFE,stroke:#0891B2,color:#083344,stroke-width:2px
+
+    class CE edge
+    class VE,MC,VO voice
+    class IC,RE control
+    class AP agent
+    class RG realtime
 ```
 
 Around that spine, platform contracts, identity, configuration, recording, transcription, reporting, observability, and assurance establish the shared foundation needed for the rest of the CCaaS landscape.
@@ -208,37 +206,41 @@ Derived systems may project these facts, but they do not silently become the sou
 
 ## 🔄 How a Voice Interaction Traverses the Platform
 
-```text
-PSTN / Carrier
-      │
-      ▼
- Voice Edge ─────────────── signaling admission / normalization
-      │
-      ▼
- Media Platform ─────────── media control / treatment
-      │
-      ▼
- Interaction Core ───────── canonical interaction created
-      │
-      ▼
- Routing Engine ─────────── queue → eligibility → ranking → reservation
-      │
-      ▼
- Agent Platform ─────────── capacity / offer / assignment
-      │
-      ▼
- Realtime Gateway ───────── authenticated delivery
-      │
-      ▼
-    VoxOne ──────────────── agent call control and media endpoint
-      │
-      ├──► Recording
-      ├──► Transcription
-      ├──► Analytics / AI
-      ├──► Reporting
-      ├──► QM / WFM
-      ├──► Survey
-      └──► Audit / Observability / Assurance
+```mermaid
+flowchart LR
+    PSTN["🌐 PSTN / Carrier"] --> VE["📞 Voice Edge<br/>Admission · normalization"]
+    VE --> MP["🎛️ Media Platform<br/>Media control · treatment"]
+    MP --> IC["🧭 Interaction Core<br/>Canonical interaction"]
+    IC --> RE["🔀 Routing Engine<br/>Queue · eligibility · ranking · reservation"]
+    RE --> AP["👥 Agent Platform<br/>Capacity · offer · assignment"]
+    AP --> RG["⚡ Realtime Gateway<br/>Authenticated delivery"]
+    RG --> VO["🎧 VoxOne<br/>Agent call control · media endpoint"]
+
+    VO --> REC["⏺️ Recording"]
+    VO --> TR["📝 Transcription"]
+    VO --> AI["🧠 Analytics / AI"]
+    VO --> RP["📊 Reporting"]
+    VO --> WF["👥 QM / WFM"]
+    VO --> SV["💬 Survey"]
+    VO --> OA["🛡️ Audit / Observability / Assurance"]
+
+    classDef edge fill:#DBEAFE,stroke:#2563EB,color:#172554,stroke-width:2px
+    classDef voice fill:#FCE7F3,stroke:#DB2777,color:#500724,stroke-width:2px
+    classDef control fill:#EDE9FE,stroke:#7C3AED,color:#2E1065,stroke-width:2px
+    classDef workforce fill:#FEF3C7,stroke:#D97706,color:#451A03,stroke-width:2px
+    classDef realtime fill:#CFFAFE,stroke:#0891B2,color:#083344,stroke-width:2px
+    classDef intelligence fill:#DCFCE7,stroke:#16A34A,color:#052E16,stroke-width:2px
+    classDef governance fill:#FEE2E2,stroke:#DC2626,color:#450A0A,stroke-width:2px
+    classDef assurance fill:#E0E7FF,stroke:#4F46E5,color:#1E1B4B,stroke-width:2px
+
+    class PSTN edge
+    class VE,MP,VO,REC voice
+    class IC,RE control
+    class AP,WF workforce
+    class RG realtime
+    class TR,AI,RP intelligence
+    class SV assurance
+    class OA governance
 ```
 
 The same interaction must remain traceable across platform interaction IDs, SIP dialogs, media legs, routing attempts, agent reservations, recordings, transcripts, and reporting facts.
@@ -247,24 +249,25 @@ The same interaction must remain traceable across platform interaction IDs, SIP 
 
 ## 📈 Engineering Maturity Model
 
-```text
-Designed
-   ↓
-Contracted
-   ↓
-Implemented
-   ↓
-Runnable
-   ↓
-Integration-tested
-   ↓
-Failure-tested
-   ↓
-Load-tested
-   ↓
-Reproducibly evidenced
-   ↓
-Operationally proven
+```mermaid
+flowchart LR
+    D["💡 Designed"] --> C["📜 Contracted"] --> I["🛠️ Implemented"] --> R["▶️ Runnable"]
+    R --> IT["🔗 Integration-tested"] --> FT["💥 Failure-tested"] --> LT["📈 Load-tested"]
+    LT --> E["🔬 Reproducibly evidenced"] --> OP["✅ Operationally proven"]
+
+    classDef design fill:#DBEAFE,stroke:#2563EB,color:#172554,stroke-width:2px
+    classDef contract fill:#EDE9FE,stroke:#7C3AED,color:#2E1065,stroke-width:2px
+    classDef build fill:#CFFAFE,stroke:#0891B2,color:#083344,stroke-width:2px
+    classDef test fill:#FEF3C7,stroke:#D97706,color:#451A03,stroke-width:2px
+    classDef evidence fill:#DCFCE7,stroke:#16A34A,color:#052E16,stroke-width:2px
+    classDef proven fill:#E0E7FF,stroke:#4F46E5,color:#1E1B4B,stroke-width:2px
+
+    class D design
+    class C contract
+    class I,R build
+    class IT,FT,LT test
+    class E evidence
+    class OP proven
 ```
 
 This prevents architecture diagrams, source code, and test plans from being presented as stronger evidence than they actually are.
