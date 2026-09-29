@@ -22,44 +22,47 @@ The goal is not to collect isolated demos. The goal is to engineer the **whole s
 
 SCubeLabs treats a contact center as a distributed real-time platform rather than a collection of UI features.
 
-```text
-                           SCubeLabs CCaaS Platform
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                         EXPERIENCE & ENGAGEMENT                             │
-│   Voice │ Chat │ Messaging │ Email │ Outbound │ Callback │ Workflow        │
-└───────────────────────────────────┬─────────────────────────────────────────┘
-                                    │
-┌───────────────────────────────────▼─────────────────────────────────────────┐
-│                         INTERACTION CONTROL                                 │
-│   Interaction Core │ Routing Engine │ Agent Platform │ Realtime Gateway    │
-└──────────────────────┬─────────────────────────────────┬────────────────────┘
-                       │                                 │
-┌──────────────────────▼──────────────────┐   ┌──────────▼────────────────────┐
-│            VOICE & MEDIA                │   │       CUSTOMER CONTEXT        │
-│ Voice Edge │ Media │ Recording │ VoxOne │   │ Profile │ Integrations        │
-└──────────────────────┬──────────────────┘   └──────────┬────────────────────┘
-                       └────────────────┬────────────────┘
-                                        │
-┌───────────────────────────────────────▼─────────────────────────────────────┐
-│                          INTELLIGENCE & DATA                                │
-│   Transcription │ AI │ Analytics │ Knowledge │ Reporting                   │
-└──────────────────────┬─────────────────────────────────┬────────────────────┘
-                       │                                 │
-┌──────────────────────▼──────────────────┐   ┌──────────▼────────────────────┐
-│       WORKFORCE & EXPERIENCE            │   │      PLATFORM FOUNDATION      │
-│ WFM │ Quality │ Surveys                 │   │ Identity │ Control │ Contracts│
-└─────────────────────────────────────────┘   │ Notifications │ Dev │ Billing │
-                                              └──────────┬────────────────────┘
-                                                         │
-                                              ┌──────────▼────────────────────┐
-                                              │   GOVERNANCE & OPERATIONS     │
-                                              │ Audit │ Compliance │ Observe  │
-                                              └──────────┬────────────────────┘
-                                                         │
-                                              ┌──────────▼────────────────────┐
-                                              │       CX ASSURANCE            │
-                                              │ Synthetic │ Voice Test │ Load │
-                                              └───────────────────────────────┘
+```mermaid
+flowchart TB
+    EXP["🌐 EXPERIENCE & ENGAGEMENT<br/>Voice · Chat · Messaging · Email · Outbound · Callback · Workflow"]
+    IC["🧭 INTERACTION CONTROL<br/>Interaction Core · Routing Engine · Agent Platform · Realtime Gateway"]
+    VM["📞 VOICE & MEDIA<br/>Voice Edge · Media · Recording · VoxOne"]
+    CC["👤 CUSTOMER CONTEXT<br/>Profile · Integrations"]
+    ID["🧠 INTELLIGENCE & DATA<br/>Transcription · AI · Analytics · Knowledge · Reporting"]
+    WE["👥 WORKFORCE & EXPERIENCE<br/>WFM · Quality · Surveys"]
+    PF["⚙️ PLATFORM FOUNDATION<br/>Identity · Control · Contracts · Notifications · Developer · Billing"]
+    GO["🛡️ GOVERNANCE & OPERATIONS<br/>Audit · Compliance · Observability"]
+    CX["🔬 CX ASSURANCE<br/>Synthetic Journeys · Voice Test · Load"]
+
+    EXP --> IC
+    IC --> VM
+    IC --> CC
+    VM --> ID
+    CC --> ID
+    ID --> WE
+    ID --> PF
+    PF --> GO
+    GO --> CX
+
+    classDef experience fill:#DBEAFE,stroke:#2563EB,color:#172554,stroke-width:2px
+    classDef control fill:#EDE9FE,stroke:#7C3AED,color:#2E1065,stroke-width:2px
+    classDef voice fill:#FCE7F3,stroke:#DB2777,color:#500724,stroke-width:2px
+    classDef customer fill:#FFEDD5,stroke:#EA580C,color:#431407,stroke-width:2px
+    classDef intelligence fill:#DCFCE7,stroke:#16A34A,color:#052E16,stroke-width:2px
+    classDef workforce fill:#FEF3C7,stroke:#D97706,color:#451A03,stroke-width:2px
+    classDef foundation fill:#CFFAFE,stroke:#0891B2,color:#083344,stroke-width:2px
+    classDef governance fill:#FEE2E2,stroke:#DC2626,color:#450A0A,stroke-width:2px
+    classDef assurance fill:#E0E7FF,stroke:#4F46E5,color:#1E1B4B,stroke-width:2px
+
+    class EXP experience
+    class IC control
+    class VM voice
+    class CC customer
+    class ID intelligence
+    class WE workforce
+    class PF foundation
+    class GO governance
+    class CX assurance
 ```
 
 The repositories are **bounded engineering domains inside this solution**. A repository boundary does not automatically mean a separately deployed microservice; deployment boundaries are earned through scale, consistency, failure isolation, security, ownership, and lifecycle requirements.
