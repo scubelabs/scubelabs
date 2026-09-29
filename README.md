@@ -2,6 +2,10 @@
 
 ### Building the Cloud Contact Center as a System
 
+<p align="center">
+  <img src="assets/scubelabs.png" alt="SCubeLabs CCaaS platform overview" width="100%" />
+</p>
+
 **Platform** · [Architecture](https://github.com/scubelabs/ccaas-reference-architecture) · [Domain Model](https://github.com/scubelabs/ccaas-domain-model) · [Mini ACD](https://github.com/scubelabs/carrier-grade-mini-acd) · [SIP Lab](https://github.com/scubelabs/sip-troubleshooting-lab) · [VoxOne](https://github.com/scubelabs/voxone-showcase) · [Customer Profile](https://github.com/scubelabs/customer-profile-platform)
 
 > **Engineering posture:** solution-oriented · bounded ownership · evidence-driven · multi-tenant · failure-aware
