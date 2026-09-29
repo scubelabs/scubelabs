@@ -2,6 +2,10 @@
 
 ### Building the Cloud Contact Center as a System
 
+**Platform** · [Architecture](https://github.com/scubelabs/ccaas-reference-architecture) · [Domain Model](https://github.com/scubelabs/ccaas-domain-model) · [Mini ACD](https://github.com/scubelabs/carrier-grade-mini-acd) · [SIP Lab](https://github.com/scubelabs/sip-troubleshooting-lab) · [VoxOne](https://github.com/scubelabs/voxone-showcase) · [Customer Profile](https://github.com/scubelabs/customer-profile-platform)
+
+> **Engineering posture:** solution-oriented · bounded ownership · evidence-driven · multi-tenant · failure-aware
+
 **SCubeLabs** is a solution-oriented engineering initiative to design and build a modern, multi-tenant **Contact Center as a Service (CCaaS) platform** from the carrier edge through the agent and customer experience.
 
 The goal is not to collect isolated demos. The goal is to engineer the **whole system**: voice and digital ingress, interaction lifecycle, routing, agent delivery, media, recording, workflow, outbound, transcription, AI, analytics, reporting, workforce management, quality management, customer feedback, platform governance, observability, and outside-in experience assurance.
