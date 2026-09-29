@@ -6,11 +6,11 @@
   <img src="assets/scubelabs.png" alt="SCubeLabs CCaaS platform overview" width="100%" />
 </p>
 
-**Platform** · [Architecture](https://github.com/scubelabs/ccaas-reference-architecture) · [Domain Model](https://github.com/scubelabs/ccaas-domain-model) · [Mini ACD](https://github.com/scubelabs/carrier-grade-mini-acd) · [SIP Lab](https://github.com/scubelabs/sip-troubleshooting-lab) · [VoxOne](https://github.com/scubelabs/voxone-showcase) · [Customer Profile](https://github.com/scubelabs/customer-profile-platform)
+🟦 **Platform** · [🏗️ Architecture](https://github.com/scubelabs/ccaas-reference-architecture) · [🧩 Domain Model](https://github.com/scubelabs/ccaas-domain-model) · [📞 Mini ACD](https://github.com/scubelabs/carrier-grade-mini-acd) · [🔬 SIP Lab](https://github.com/scubelabs/sip-troubleshooting-lab) · [🎧 VoxOne](https://github.com/scubelabs/voxone-showcase) · [👤 Customer Profile](https://github.com/scubelabs/customer-profile-platform)
 
-> **Engineering posture:** solution-oriented · bounded ownership · evidence-driven · multi-tenant · failure-aware
+> 🟦 **Solution-oriented** · 🟣 **Bounded ownership** · 🟢 **Evidence-driven** · 🟠 **Multi-tenant** · 🔴 **Failure-aware**
 
-**SCubeLabs** is a solution-oriented engineering initiative to design and build a modern, multi-tenant **Contact Center as a Service (CCaaS) platform** from the carrier edge through the agent and customer experience.
+**SCubeLabs** is the engineering home for a modern, multi-tenant **Contact Center as a Service (CCaaS) platform** spanning the carrier edge, realtime communications, interaction control, agent experience, intelligence, workforce, data, governance, and customer-experience assurance.
 
 The goal is not to collect isolated demos. The goal is to engineer the **whole system**: voice and digital ingress, interaction lifecycle, routing, agent delivery, media, recording, workflow, outbound, transcription, AI, analytics, reporting, workforce management, quality management, customer feedback, platform governance, observability, and outside-in experience assurance.
 
@@ -18,7 +18,7 @@ The goal is not to collect isolated demos. The goal is to engineer the **whole s
 
 ---
 
-## What We Are Building
+## 🌈 What We Are Building
 
 SCubeLabs treats a contact center as a distributed real-time platform rather than a collection of UI features.
 
@@ -66,7 +66,7 @@ The repositories are **bounded engineering domains inside this solution**. A rep
 
 ---
 
-## Current Engineering Direction
+## 🚀 Current Engineering Direction
 
 SCubeLabs is moving from **architecture → contracts → executable vertical slices → failure evidence → platform integration**.
 
@@ -103,7 +103,7 @@ The broader domain repositories are not a promise that dozens of independent ser
 
 ---
 
-## One Platform, Four Engineering Tracks
+## 🧭 One Platform, Four Engineering Tracks
 
 | Track | Purpose | Representative repositories |
 |---|---|---|
@@ -116,41 +116,41 @@ This distinction is deliberate: **designed**, **implemented**, **lab-proven**, *
 
 ---
 
-## Platform Domains
+## 🧱 Platform Domains
 
-### Core runtime
+### 🔵 Core runtime
 `interaction-core` · `routing-engine` · `agent-platform` · `realtime-gateway`
 
 These domains own the canonical interaction lifecycle, queue/routing decisions, reservations and assignment, agent state/capacity, and realtime delivery.
 
-### Voice, media and engagement
+### 🟣 Voice, media and engagement
 `voice-edge` · `media-platform` · `recording-platform` · `digital-channel-platform` · `email-channel-platform` · `outbound-platform` · `callback-platform` · `workflow-platform` · `voxone`
 
 These domains connect customers and agents while keeping transport/protocol behavior behind explicit boundaries.
 
-### Intelligence and data
+### 🟢 Intelligence and data
 `transcription-platform` · `ai-platform` · `analytics-platform` · `reporting-platform` · `knowledge-platform` · `customer-profile-platform` · `integration-platform`
 
 These domains turn operational events and customer context into searchable, reportable, assistive, and analytical capabilities without taking ownership away from operational systems.
 
-### Workforce and experience
+### 🟠 Workforce and experience
 `workforce-management` · `quality-management` · `survey-platform`
 
 These domains cover forecasting, scheduling, adherence, evaluation, coaching, calibration, and post-interaction feedback.
 
-### Platform foundation
+### 🔷 Platform foundation
 `platform-control-plane` · `identity-access-platform` · `platform-contracts` · `notification-platform` · `developer-platform` · `tenant-billing-platform`
 
 These are shared platform capabilities for multi-tenancy, configuration, identity, contracts, extensibility, notifications, entitlements, and metering.
 
-### Governance, reliability and proof
+### 🔴 Governance, reliability and proof
 `audit-compliance-platform` · `observability-platform` · `cx-assurance-platform` · `voice-test-engine` · `load-test-platform`
 
 SCubeLabs separates **inside-out observability** from **outside-in assurance**. Telemetry explains what the platform reports about itself; synthetic journeys test whether customers can actually complete the intended experience.
 
 ---
 
-## Public Engineering Surface
+## 🛠️ Public Engineering Surface
 
 These repositories expose the architecture and engineering approach without pretending that design artifacts are production certification.
 
@@ -165,7 +165,7 @@ These repositories expose the architecture and engineering approach without pret
 
 ---
 
-## Architectural Rules
+## 📐 Architectural Rules
 
 1. **One authoritative owner per mutable state.**
 2. **Interaction identity is the correlation spine across channels and domains.**
@@ -180,7 +180,7 @@ These repositories expose the architecture and engineering approach without pret
 
 ---
 
-## Authoritative State Ownership
+## 🔐 Authoritative State Ownership
 
 | State | Owning domain |
 |---|---|
@@ -203,7 +203,7 @@ Derived systems may project these facts, but they do not silently become the sou
 
 ---
 
-## How a Voice Interaction Traverses the Platform
+## 🔄 How a Voice Interaction Traverses the Platform
 
 ```text
 PSTN / Carrier
@@ -242,7 +242,7 @@ The same interaction must remain traceable across platform interaction IDs, SIP 
 
 ---
 
-## Engineering Maturity Model
+## 📈 Engineering Maturity Model
 
 ```text
 Designed
@@ -268,7 +268,7 @@ This prevents architecture diagrams, source code, and test plans from being pres
 
 ---
 
-## Where to Start
+## 🗺️ Where to Start
 
 **Understand the system:** [CCaaS Reference Architecture](https://github.com/scubelabs/ccaas-reference-architecture)
 
@@ -282,7 +282,7 @@ This prevents architecture diagrams, source code, and test plans from being pres
 
 ---
 
-## The Engineering Question
+## 💡 The Engineering Question
 
 > **If we had to build a modern cloud contact center from the carrier edge to the customer experience, what must every domain own, how should those domains communicate, how should the system behave under failure, and what evidence proves that it works?**
 
